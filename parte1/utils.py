@@ -2,7 +2,6 @@
 #______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
 
-import search
 infinity = 1.0e400
 
 
@@ -480,7 +479,6 @@ def print_table(table, header=None, sep=' ', numfmt='%g'):
 
 def AIMAFile(components, mode='r'):
     "Open a file based at the AIMA root directory."
-    import utils
 
     dir = os.path.dirname(utils.__file__)
     return open(os.path.join(*[dir] + components), mode)

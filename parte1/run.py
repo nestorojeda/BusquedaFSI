@@ -1,6 +1,6 @@
 # Search methods
 
-import search
+from parte1 import search
 
 ab = search.GPSProblem('A', 'B'
                        , search.romania)

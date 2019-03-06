@@ -5,10 +5,8 @@ then create problem instances and solve them with calls to the various search
 functions."""
 
 
-from utils import *
+from parte1.utils import *
 import random
-import sys
-
 
 
 # ______________________________________________________________________________
