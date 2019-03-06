@@ -2,18 +2,15 @@
 
 import search
 
-ab = search.GPSProblem('A', 'U'
+ab = search.GPSProblem('A', 'B'
                        , search.romania)
+print("Anchura:")
+print(search.breadth_first_graph_search(ab).path())
+print("Profundidad:")
+print(search.depth_first_graph_search(ab).path())
+print("Branch and bound:")
+print(search.Branch_and_Bound(ab).path())
 
-node = search.breadth_first_graph_search(ab)
-print(node.path())
-print(node.path_cost)
-node = search.depth_first_graph_search(ab)
-print(node.path())
-print(node.path_cost)
-node = search.Branch_and_Bound(ab)
-print(node.path())
-print(node.path_cost)
 
 # Result:
 # [<Node B>, <Node P>, <Node R>, <Node S>, <Node A>] : 101 + 97 + 80 + 140 = 418
