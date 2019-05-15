@@ -8,7 +8,6 @@ functions."""
 from utils import *
 import random
 
-
 # ______________________________________________________________________________
 
 
@@ -87,6 +86,7 @@ class Node:
         return [Node(next, self, act,
                      problem.path_cost(self.path_cost, self.state, act, next))
                 for (act, next) in problem.successor(self.state)]
+
     def __lt__(self, other):
         return self.path_cost < other.path_cost
 
@@ -103,13 +103,16 @@ def graph_search(problem, fringe):
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
     closed = {}
     fringe.append(Node(problem.initial))
+    visited =0
     while fringe:
         node = fringe.pop()
         if problem.goal_test(node.state):
+            print(visited)
             return node
         if node.state not in closed:
             closed[node.state] = True
             fringe.extend(node.expand(problem))
+            visited = visited + 1
     return None
 
 
@@ -117,12 +120,15 @@ def breadth_first_graph_search(problem):
     """Search the shallowest nodes in the search tree first. [p 74]"""
     return graph_search(problem, FIFOQueue())  # FIFOQueue -> fringe
 
-def Branch_and_Bound(problem):
-    return graph_search(problem, OrderedQueue())
-
 def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
+
+def Branch_and_Bound(problem):
+    return graph_search(problem, OrderedQueue())
+
+def Branch_and_Bound_H(problem):
+    return graph_search(problem, HeuristicOrderedQueue(problem))
 
 
 
@@ -268,3 +274,5 @@ class GPSProblem(Problem):
             return int(distance(locs[node.state], locs[self.goal]))
         else:
             return infinity
+
+

@@ -10,6 +10,8 @@ print("Profundidad:")
 print(search.depth_first_graph_search(ab).path())
 print("Branch and bound:")
 print(search.Branch_and_Bound(ab).path())
+print("Branch and bound con heuristica:")
+print(search.Branch_and_Bound_H(ab).path())
 
 
 # Result:
